@@ -1,4 +1,4 @@
-# Dockerfile from dockerfile/java
+# Dockerfile from dockerfile/java with changes
 # Test in progress
 #
 # Oracle Java 8 Dockerfile
@@ -8,7 +8,7 @@
 #
 
 # Pull base image.
-FROM dockerfile/ubuntu
+FROM ubuntu
 
 # Install Java.
 RUN \
