@@ -1,14 +1,16 @@
-# Dockerfile from dockerfile/java with changes
-# Test in progress
+# Install official Oracle JRE 8 on Ubuntu
+#
+# Original Dockerfile from dockerfile/java with changes
+# Installation is OK
 #
 # Oracle Java 8 Dockerfile
 #
-# https://github.com/dockerfile/java
-# https://github.com/dockerfile/java/tree/master/oracle-java8
 #
 
 # Pull base image.
 FROM ubuntu
+
+MAINTAINER mat.febvay@hotmail.fr
 
 # Install Java.
 RUN \
@@ -28,4 +30,4 @@ WORKDIR /data
 ENV JAVA_HOME /usr/lib/jvm/java-8-oracle
 
 # Define default command.
-CMD ["bash"]
+#CMD ["bash"]
