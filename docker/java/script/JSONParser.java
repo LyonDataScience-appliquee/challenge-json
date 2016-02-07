@@ -52,7 +52,7 @@ public class JSONParser
 		
 		Connection postGreSQLConnection = null;
 		PreparedStatement preparedInsertStatement = null;
-		String insertQuery = "INSERT INTO matfeb ("
+		String insertQuery = "INSERT INTO java ("
 				+ "number, name, address, address2, commune, nmarrond, bonus, pole, lat, lng, bike_stands,"
 				+ "status, available_bike_stands, available_bikes, availabilitycode, availability, banking, the_geom, gid, last_update, last_update_fme, created_date) "
 				+ "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,point(?,?),?,?,?,?);";
@@ -64,7 +64,7 @@ public class JSONParser
 			
 			// On se connecte à la base de données
 			postGreSQLConnection = DriverManager.getConnection(
-					"jdbc:postgresql://" + args[0] + ":5432",
+					"jdbc:postgresql://" + args[0] + ":5432/testing",
 					args[1],
 					args[2]
 					);
