@@ -3,8 +3,6 @@
 FROM progrium/busybox
 MAINTAINER Mathieu Febvay <mat.febvay@hotmail.fr> thanks to Ilkka Anttonen from http://sirile.github.io/
 
-ENV depot = matfeb
-
 # Get and install Java and Git
 RUN \
   opkg-install wget git \
