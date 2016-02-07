@@ -1,7 +1,7 @@
 # JDK 1.8u73 with BusyBox
 
 FROM progrium/busybox
-MAINTAINER Mathieu Febvay <mat.febvay@hotmail.fr> thank to Ilkka Anttonen from http://sirile.github.io/
+MAINTAINER Mathieu Febvay <mat.febvay@hotmail.fr> thanks to Ilkka Anttonen from http://sirile.github.io/
 
 RUN mkdir -p /usr/velov
 COPY script/JSONParser.java script/args.sh /usr/velov/
