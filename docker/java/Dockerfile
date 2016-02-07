@@ -9,8 +9,7 @@ WORKDIR /usr/velov
 # Get and install Java
 RUN \
   opkg-install wget \
-  && wget https://github.com/matfeb/challenge-json/blob/master/docker/java/script/JSONParser.java -O /usr/velov/ \
-  && wget https://github.com/matfeb/challenge-json/blob/master/docker/java/script/args.sh -O /usr/velov/ \
+  && wget https://github.com/matfeb/challenge-json/blob/master/docker/java/script/* -O /usr/velov/ \
   && wget --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" -O /tmp/jdk.tar.gz http://download.oracle.com/otn-pub/java/jdk/8u73-b02/jdk-8u73-linux-x64.tar.gz \
   && gunzip /tmp/jdk.tar.gz \
   && cd /opt && tar xf /tmp/jdk.tar \
