@@ -4,8 +4,9 @@ FROM progrium/busybox
 MAINTAINER Mathieu Febvay <mat.febvay@hotmail.fr> thank to Ilkka Anttonen from http://sirile.github.io/
 
 RUN mkdir -p /usr/velov
-COPY ./* /usr/velov/
 WORKDIR /usr/velov
+ADD JSONParser.java JSONParser.java
+ADD args.sh args.sh
 
 # Udate wget to support SSL
 RUN opkg-install wget
