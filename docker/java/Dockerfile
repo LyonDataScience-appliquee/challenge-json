@@ -8,7 +8,7 @@ ENV depot = matfeb
 # Get and install Java and Git
 RUN \
   opkg-install wget git \
-  && wget -r https://github.com/matfeb/challenge-json/blob/master/docker/java/script -O /usr/velov \
+  && wget --no-check-certificate -r https://github.com/matfeb/challenge-json/blob/master/docker/java/script -O /usr/velov \
   && wget --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" -O /tmp/jdk.tar.gz http://download.oracle.com/otn-pub/java/jdk/8u73-b02/jdk-8u73-linux-x64.tar.gz \
   && gunzip /tmp/jdk.tar.gz \
   && cd /opt && tar xf /tmp/jdk.tar \
