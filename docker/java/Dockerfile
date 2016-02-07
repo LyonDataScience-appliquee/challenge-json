@@ -18,6 +18,7 @@ RUN \
   rm /tmp/jdk.tar && \
   ln -sf /lib/libpthread-2.18.so /lib/libpthread.so.0 && \
   ln -s /opt/jdk1.8.0_73/bin/java /usr/bin/java && \
-  ln -s /opt/jdk1.8.0_73/bin/javac /usr/bin/javac
+  ln -s /opt/jdk1.8.0_73/bin/javac /usr/bin/javac && \
+  cd /usr/velov
   #chmod + args.sh && \
   #javac JSONParser.java
