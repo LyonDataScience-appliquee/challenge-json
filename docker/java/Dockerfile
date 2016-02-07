@@ -15,6 +15,6 @@ RUN \
   && ln -s /opt/jdk1.8.0_73/bin/javac /usr/bin/javac \
   && mkdir -p /usr/velov \
   && cd /usr/velov \
-  && git clone git://github.com/matfeb/challenge-json/master/docker/java/script.git script
+  && git clone git://github.com/matfeb/challenge-json.git script
   #chmod + args.sh && \
   #javac JSONParser.java
