@@ -2,6 +2,7 @@
 #
 # Original Dockerfile from dockerfile/java with changes
 # Installation is OK
+# STAND BY FOR THIS ONE
 #
 # Oracle Java 8 Dockerfile
 #
@@ -10,7 +11,7 @@
 # Pull base image.
 FROM ubuntu
 
-MAINTAINER mat.febvay@hotmail.fr
+MAINTAINER Mathieu Febvay <mat.febvay@hotmail.fr>
 
 # Install Java.
 RUN \
