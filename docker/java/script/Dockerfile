@@ -5,8 +5,8 @@ MAINTAINER Mathieu Febvay <mat.febvay@hotmail.fr> thank to Ilkka Anttonen from h
 
 RUN mkdir -p /usr/velov
 WORKDIR /usr/velov
-ADD .JSONParser.java JSONParser.java
-ADD .args.sh args.sh
+ADD ./JSONParser.java JSONParser.java
+ADD ./args.sh args.sh
 
 # Udate wget to support SSL
 RUN opkg-install wget
