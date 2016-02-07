@@ -4,7 +4,7 @@ FROM progrium/busybox
 MAINTAINER Mathieu Febvay <mat.febvay@hotmail.fr> thank to Ilkka Anttonen from http://sirile.github.io/
 
 RUN mkdir -p /usr/velov
-COPY src/* /usr/velov/
+COPY script/* /usr/velov/
 WORKDIR /usr/velov
 
 # Udate wget to support SSL
