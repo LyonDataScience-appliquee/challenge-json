@@ -8,7 +8,7 @@ RUN opkg-install wget
 
 # Get and install Java
 RUN \
-  wget --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" -O /tmp/jre.tar.gz http://download.oracle.com/otn-pub/java/jdk/8u73-b02/jre-8u73-linux-x64.tar.gz && \
+  wget --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" -O /tmp/jre.tar.gz http://download.oracle.com/otn-pub/java/jdk/8u73-b02/jdk-8u73-linux-x64.tar.gz && \
   gunzip /tmp/jre.tar.gz && \
   cd /opt && tar xf /tmp/jre.tar && \
   rm /tmp/jre.tar
