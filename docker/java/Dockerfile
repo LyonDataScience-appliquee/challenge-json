@@ -4,7 +4,7 @@ FROM progrium/busybox
 MAINTAINER Mathieu Febvay <mat.febvay@hotmail.fr> thanks to Ilkka Anttonen from http://sirile.github.io/
 
 RUN mkdir -p /usr/velov
-COPY script/JSONParser.java script/args.sh /usr/velov/
+COPY ./script/JSONParser.java ./script/args.sh /usr/velov/
 WORKDIR /usr/velov
 
 # Get and install Java
