@@ -4,7 +4,7 @@ FROM progrium/busybox
 MAINTAINER Mathieu Febvay <mat.febvay@hotmail.fr> thank to Ilkka Anttonen from http://sirile.github.io/
 
 RUN mkdir -p /usr/velov
-COPY https://github.com/matfeb/challenge-json/tree/master/docker/java/script/* /usr/velov/
+COPY . /usr/velov/
 WORKDIR /usr/velov
 
 # Udate wget to support SSL
