@@ -15,7 +15,7 @@ RUN \
   && ln -sf /lib/libpthread-2.18.so /lib/libpthread.so.0 \
   && ln -s /opt/jdk1.8.0_73/bin/java /usr/bin/java \
   && ln -s /opt/jdk1.8.0_73/bin/javac /usr/bin/javac \
-  && mkdir -p /usr/velov
+  && mkdir -p /usr/velov \
   && cd /usr/velov \
   && git clone git://github.com/matfeb/challenge-json/master/docker/java/script.git script
   #chmod + args.sh && \
