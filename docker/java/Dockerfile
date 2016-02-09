@@ -15,7 +15,7 @@ RUN \
   && rm /tmp/jre.tar \
   && mkdir -p /usr/velov \
   && cd /usr/velov \
-  && wget --no-check-certificate -O JSONParser.jar https://github.com/matfeb/challenge-json/releases/download/v1.2/JSONParser-1.2.jar \
+  && wget --no-check-certificate -O JSONParser.jar https://github.com/matfeb/challenge-json/releases/download/v1.2/JSONParser-1.3.jar \
   && chmod +x JSONParser.jar
   
 RUN \
