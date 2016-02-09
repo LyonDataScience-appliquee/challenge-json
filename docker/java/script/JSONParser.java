@@ -4,7 +4,7 @@
  * <h3>Parser JSON</h3>
  * Récupère le fichier <strong>JSON</strong>, le traite et l'introduit en base de donnée.
  * <pre>Créée le 16/01/2016</pre>
- * <pre>Modifié le 07/02/2016</pre>
+ * <pre>Modifié le 09/02/2016</pre>
  * 
  * <p>Utilisation de deux API :
  * 	<ul>
@@ -13,10 +13,9 @@
  * 	</ul>
  *</p>
  *<p>Benchmark : 3600-3700 ms</p>
- *<p>While(true) après connection bench en dessous de 2000 ms</p>
  * 
  * @author Mathieu Febvay -> mat.febvay@hotmail.fr
- * @version 1.1
+ * @version 1.2
  */
 
 package fr.lyontechhub.datascienceappliquee.velov;
@@ -43,6 +42,15 @@ import javax.json.JsonReader;
 
 public class JSONParser 
 {
+	/**
+	 * 
+	 * @param args[0] doit être l'adresse de la base de données avec le numéro de port ex: 0.0.0.0:5432 ou localhost:5432
+	 * @param args[1] doit être le nom de la base de données
+	 * @param args[2] doit être le nom de la table où insérer les données
+	 * @param args[3] doit être le nom d'utilisateur pour se connecter à la base de données
+	 * @param args[4] doit être le mot de passe pour se connecter à la base de données
+	 */
+	
 	// Lancement de l'application
 	public static void main(String[] args) 
 	{
@@ -52,8 +60,8 @@ public class JSONParser
 		
 		Connection postGreSQLConnection = null;
 		PreparedStatement preparedInsertStatement = null;
-		String insertQuery = "INSERT INTO java ("
-				+ "number, name, address, address2, commune, nmarrond, bonus, pole, lat, lng, bike_stands,"
+		String insertQuery = "INSERT INTO " +  args[2]
+				+ "(number, name, address, address2, commune, nmarrond, bonus, pole, lat, lng, bike_stands,"
 				+ "status, available_bike_stands, available_bikes, availabilitycode, availability, banking, the_geom, gid, last_update, last_update_fme, created_date) "
 				+ "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,point(?,?),?,?,?,?);";
 		DateTimeFormatter formatDate = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
@@ -61,12 +69,11 @@ public class JSONParser
 		try 
 		{			
 			System.out.print("Connection à la base de données...");
-			
-			// On se connecte à la base de données
+		
 			postGreSQLConnection = DriverManager.getConnection(
-					"jdbc:postgresql://" + args[0] + ":5432/testing",
-					args[1],
-					args[2]
+					"jdbc:postgresql://" + args[0] + "/" + args[1],
+					args[3],
+					args[4]
 					);
 			// Amélioration des performances
 			postGreSQLConnection.setAutoCommit(false);
