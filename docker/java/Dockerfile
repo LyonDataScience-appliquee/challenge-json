@@ -1,4 +1,7 @@
 # JRE 1.8u73 with BusyBox
+# Docker address for this file is :
+# https://raw.githubusercontent.com/matfeb/challenge-json/master/docker/java/Dockerfile
+# for the moment...
 
 FROM progrium/busybox
 MAINTAINER Mathieu Febvay <mat.febvay@hotmail.fr> thanks to Ilkka Anttonen from http://sirile.github.io/
