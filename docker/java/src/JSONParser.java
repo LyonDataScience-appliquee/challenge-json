@@ -1,4 +1,4 @@
-/**
+c/**
  * <h1>LyonTechHub</h1>
  * <h2>DataScience Appliquée</h2>
  * <h3>Parser JSON</h3>
@@ -33,6 +33,7 @@ import java.sql.SQLException;
 import java.sql.Timestamp;
 
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 
 import javax.json.Json;
@@ -54,6 +55,7 @@ public class JSONParser
 	// Lancement de l'application
 	public static void main(String[] args) 
 	{
+		
 		if (args.length == 5)
 		{			
 			long startingTime = 0;		
@@ -63,8 +65,8 @@ public class JSONParser
 			Connection postGreSQLConnection = null;
 			PreparedStatement preparedInsertStatement = null;
 			String insertQuery = "INSERT INTO " +  args[2]
-					+ "(number, name, address, address2, commune, nmarrond, bonus, pole, lat, lng, bike_stands,"
-					+ "status, available_bike_stands, available_bikes, availabilitycode, availability, banking, the_geom, gid, last_update, last_update_fme, created_date) "
+					+ " (number, name, address, address2, commune, nmarrond, bonus, pole, lat, lng, bike_stands,"
+					+ "status, available_bike_stands, available_bikes, availabilitycode, availability, banking, the_geom, gid, last_update, last_update_fme, creation) "
 					+ "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,point(?,?),?,?,?,?);";
 			DateTimeFormatter formatDate = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 			
@@ -73,18 +75,12 @@ public class JSONParser
 				System.out.print("Connection à la base de données...");
 				
 				// On se connecte à la base de données
-				/*
-				postGreSQLConnection = DriverManager.getConnection(
-						"jdbc:postgresql://vps234953.ovh.net:5432/postgres",
-						"postgres",
-						"P@nd0s+"
-						);	
-				*/
 				postGreSQLConnection = DriverManager.getConnection(
 						"jdbc:postgresql://" + args[0] + "/" + args[1],
 						args[3],
 						args[4]
 						);
+						
 				// Amélioration des performances
 				postGreSQLConnection.setAutoCommit(false);
 				
@@ -121,7 +117,7 @@ public class JSONParser
 				// Pour chaque tableau on crée un objet JSON 
 				for (JsonObject result : jsArray.getValuesAs(JsonObject.class))
 				{
-					LocalDateTime now = LocalDateTime.now();
+					LocalDateTime now = LocalDateTime.now(ZoneId.of("Europe/Paris"));
 					String dateTime = now.format(formatDate);
 					
 					preparedInsertStatement.setInt(1, Integer.parseInt(result.getString("number")));
@@ -187,6 +183,10 @@ public class JSONParser
 			catch (SQLException e) 
 			{
 				System.out.println("Erreur lors de la connection à la base de données : " + e.getMessage());
+				while (e.getNextException()!=null)
+				{
+					System.out.println("Next : " + e.getNextException().getMessage());
+				}
 			} 
 				
 			try 
@@ -195,17 +195,21 @@ public class JSONParser
 				preparedInsertStatement.close();
 				// On ferme la connection
 				postGreSQLConnection.close();
+				System.exit(0);
 			} 
 			catch (SQLException e) 
 			{
 				System.out.println("Erreur lors de la fermeture des connections : " + e.getMessage());
 			}
+		
 		}// if
+		
 		else
 		{
 			System.out.println("Le nombre d'arguments n'est pas valide");
 			System.out.println("La syntaxe est la suivante :");
 			System.out.println("JSONParser.jar <@db> <dbName> <tableName> <dbUser> <dbPassword>");
+			System.exit(0);
 		}
 	}// void main
 }// class
