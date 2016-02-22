@@ -14,9 +14,10 @@ RUN \
   && cd /opt && tar xf /tmp/jre.tar \
   && rm /tmp/jre.tar \
   && mkdir -p /usr/velov \
-  && cd /usr/velov \
-  && wget --no-check-certificate -O JSONParser.jar https://github.com/matfeb/challenge-json/releases/download/v1.3/JSONParser-1.3.jar \
-  && chmod +x JSONParser.jar
+  && cd /usr/velov 
+  #\
+  #&& wget --no-check-certificate -O JSONParser.jar https://github.com/matfeb/challenge-json/releases/download/v1.3/JSONParser-1.3.jar \
+  #&& chmod +x JSONParser.jar
   
 RUN \
   ln -sf /lib/libpthread-2.18.so /lib/libpthread.so.0 \
